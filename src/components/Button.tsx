@@ -1,6 +1,8 @@
+import { MouseEventHandler } from "react";
+
 interface ButtonProps {
     text: string;
-    onClick: () => void;
+    onClick: () => MouseEventHandler;
 }
 
 export const Button = ({ text, onClick }: ButtonProps) => {
