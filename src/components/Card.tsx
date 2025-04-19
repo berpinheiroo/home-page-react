@@ -11,17 +11,26 @@ interface ICard {
   details: string
 }
 
+interface userData {
+  email: string,
+  password: string,
+  name: string
+}
+
 export const Card = () => {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [userData, setUserData] = useState<null | userData>()
 
   useEffect(() => {
     const getData = async () => {
-      const data = await api
-      console.log(data)
+      const data: any | userData = await api
+      setUserData(data)
     }
 
     getData()
-  })
+  }, [])
+
+  console.log(userData)
 
   return (
 
