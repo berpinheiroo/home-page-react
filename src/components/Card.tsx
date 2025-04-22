@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react"
-import { Box, Button, Center, ChakraProvider, Input } from "@chakra-ui/react"
-import { Layout } from "./Layout"
+import { useState } from "react"
+import { Box, Button, Center, Input } from "@chakra-ui/react"
 import { login } from "../services/login"
-import { api } from "../api"
-import { get } from "http"
 
 interface ICard {
   id: number,
@@ -11,35 +8,14 @@ interface ICard {
   details: string
 }
 
-interface userData {
-  email: string,
-  password: string,
-  name: string
-}
-
 export const Card = () => {
   const [email, setEmail] = useState<string>('')
-  const [userData, setUserData] = useState<null | userData>()
 
-  useEffect(() => {
-    const getData = async () => {
-      const data: any | userData = await api
-      setUserData(data)
-    }
-
-    getData()
-  }, [])
-
-  console.log(userData)
 
   return (
 
     <Box minHeight='100vh' backgroundColor='blue.600' padding='25px'>
       <Box backgroundColor='#FFFFFF' borderRadius='25px' padding='15px' >
-        {/* { userData === null || userData === undefined ? 
-        <h1>Loading...</h1> : 
-        <h1>Informações carregadas</h1>
-    v     } */}
         <Center>
           <h1>Faça o login</h1>
         </Center>
