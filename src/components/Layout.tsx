@@ -1,10 +1,11 @@
-import { Header } from "./Header/Header"
+import { Box } from "@chakra-ui/react"
+import { Header } from "./Header"
 
 export const Layout = ({ children }: any) => {
   return(
-    <>
-      <Header text = 'DioBank' />
-      { children }
-    </>
+    <Box minHeight='100vh' backgroundColor='#9413dc'>
+      <Header />
+      {children}
+    </Box>
   )
 }
